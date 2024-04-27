@@ -22,27 +22,30 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <GoalInput
-        inputHandler={inputHandler}
-        addGoalHandler={addGoalHandler}
-        val={eT}
-      />
-      <View style={styles.listCntr}>
-        <FlatList
-          data={goals}
-          alwaysBounceVertical={false}
-          keyExtractor={(item, index) => item.id}
-          renderItem={(itemData) => (
-            <GoalItem
-              text={itemData.item.text}
-              deleteItem={deleteItemHandler}
-              id={itemData.item.id}
-            />
-          )}
+    <>
+      <StatusBar style="light" />
+      <View style={styles.appContainer}>
+        <GoalInput
+          inputHandler={inputHandler}
+          addGoalHandler={addGoalHandler}
+          val={eT}
         />
+        <View style={styles.listCntr}>
+          <FlatList
+            data={goals}
+            alwaysBounceVertical={false}
+            keyExtractor={(item, index) => item.id}
+            renderItem={(itemData) => (
+              <GoalItem
+                text={itemData.item.text}
+                deleteItem={deleteItemHandler}
+                id={itemData.item.id}
+              />
+            )}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
